@@ -44,16 +44,16 @@ from orders_per_cust
 #### Question 5: On average, how many unique sessions do we have per hour?
 #### Answer 5: 16.33
 ~~~~sql
-with orders_per_cust as (
+with sessions_per_hour as (select
+count(distinct session_id) as num_unique_sessions
+, EXTRACT(year from created_at) as year
+, extract(month from created_at) as month
+, extract(day from created_at) as day
+, extract(hour from created_at) as hour
+from dbt_krishna_v.stg_events
+group by year, month, day, hour
+order by year, month, day, hour)
 select
-user_id
-, count(*) as num_orders
-from dbt_krishna_v.stg_orders
-group by user_id
-order by num_orders desc) 
-select
-sum(CASE when num_orders = 1 then 1 else 0 end) as num_cust_1_order
-, sum(CASE when num_orders = 2 then 1 else 0 end) as num_cust_2_orders
-, sum(CASE when num_orders > 2 then 1 else 0 end) as num_cust_ge3_orders
-from orders_per_cust
+avg(num_unique_sessions)
+from sessions_per_hour
 ~~~~
