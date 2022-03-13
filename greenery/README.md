@@ -44,9 +44,6 @@ from orders_per_cust
 #### Question 5: On average, how many unique sessions do we have per hour?
 #### Answer 5: 16.33
 ~~~~sql
-#### Question 4: How many users have only made one purchase? Two purchases? Three+ purchases?
-#### Answer 4: 25, 28 and 71 respectively
-~~~~sql
 with orders_per_cust as (
 select
 user_id
@@ -60,19 +57,3 @@ sum(CASE when num_orders = 1 then 1 else 0 end) as num_cust_1_order
 , sum(CASE when num_orders > 2 then 1 else 0 end) as num_cust_ge3_orders
 from orders_per_cust
 ~~~~
-
-
-
-### Using the starter project
-
-Try running the following commands:
-- dbt run
-- dbt test
-
-
-### Resources:
-- Learn more about dbt [in the docs](https://docs.getdbt.com/docs/introduction)
-- Check out [Discourse](https://discourse.getdbt.com/) for commonly asked questions and answers
-- Join the [chat](https://community.getdbt.com/) on Slack for live discussions and support
-- Find [dbt events](https://events.getdbt.com) near you
-- Check out [the blog](https://blog.getdbt.com/) for the latest news on dbt's development and best practices
