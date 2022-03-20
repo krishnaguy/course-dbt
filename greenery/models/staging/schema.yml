@@ -1,0 +1,15 @@
+version: 2
+
+models:
+  - name: stg_users
+    description: 'Staged users'
+  - name: stg_addresses
+    description: 'Staged addresses'
+  - name: stg_events
+    description: 'Staged events'
+  - name: stg_orders
+    description: 'Staged orders'
+  - name: stg_order_items
+    description: 'Staged order_items'
+  - name: stg_promos
+    description: 'Staged promos'

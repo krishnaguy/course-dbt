@@ -1,0 +1,33 @@
+version: 2
+
+sources:
+  - name: raw_greenery
+    schema: public
+    tables:
+      - name: users
+        description: >
+           the unique users in the database
+        identifier: users
+      - name: addresses
+        description: >
+           The addresses of each user
+        identifier: addresses
+      - name: events
+        description: >
+           Tracked activities of each user
+        identifier: events
+      - name: orders
+        description: >
+           Customer orders tracked by order time, status and delivery date.
+        identifier: orders
+      - name: order_items
+        description: >
+           The individual items bought per order.
+        identifier: order_items
+      - name: products
+        description: >
+           The products available for sale ag Greenery
+        identifier: products
+      - name: promos
+        description: >
+           The list of promotions
