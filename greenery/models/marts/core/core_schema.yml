@@ -1,0 +1,65 @@
+version: 2
+
+models:
+  - name: dim_user
+    description: 'User Dimension'
+    columns:
+      - name: user_guid
+        description: '{{ doc("user_id") }}'
+        tests: 
+          - unique
+          - not_null
+      - name: created_at
+        description: '{{ doc("user_created_at") }}'
+        tests: 
+          - not_null
+      - name: updated_at
+        description: '{{ doc("user_updated_at") }}'
+      - name: first_name
+        description: '{{ doc("first_name") }}'
+        tests:
+          - not_null
+      - name: last_name
+        description: '{{ doc("last_name") }}'
+        tests:
+          - not_null
+      - name: email
+        description: '{{ doc("email") }}'
+        tests:
+          - not_null
+          - unique
+      - name: phone_number
+        description: '{{ doc("phone_number") }}'
+      - name: address_id
+        description: '{{ doc("address_id") }}'
+        tests:
+          - relationships:
+              to: ref("dim_address")
+              field: address_id
+
+  - name: dim_address
+    description: "Address Dimension"
+    columns:
+      - name: address_id
+        description: '{{ doc("address_id") }}'
+      - name: address
+        description: '{{ doc("address") }}'
+      - name: state
+        description: '{{ doc("state") }}'
+      - name: zipcode
+        description: '{{ doc("zipcode") }}'
+      - name: country
+        description: '{{ doc("country") }}'
+
+    
+  - name: dim_product
+    description: 'Product Dimension'
+    columns: 
+      - name: product_id
+        description: '{{ doc("product_id") }}'
+      - name: product_name
+        description: '{{ doc("product_name") }}'
+      - name: price
+        description: '{{ doc("product_price") }}'
+      - name: inventory
+        description: '{{ doc("product_inventory") }}'
