@@ -4,6 +4,8 @@ event_id
 , user_id
 , event_type
 , page_url
+, product_id
+, order_id
 , created_at
 , EXTRACT( year from created_at ) as year
 , EXTRACT( month from created_at ) as month

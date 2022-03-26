@@ -34,4 +34,10 @@ models:
         description: 'Number of distinct users per hour'
       - name: num_distinct_sessions
         description: 'Number of distinct sessions per hour'
-      
+  - name: fact_product_conv
+    description: 'Conversion rate by product'
+    columns: 
+      - name: product_id
+        description: '{{ doc("product_id") }}'
+      - name: conversion_rate
+        description: "Product conversion rate defined as the number of sessions with a page_view event divided by the number of sessions with a conversion event (for that product). The conversion event is the AND of a add_to_cart event and a checkout event."

@@ -28,6 +28,18 @@ models:
               values: ['page_view', 'add_to_cart', 'package_shipped', 'checkout']
       - name: page_url
         description: '{{ doc("page_url") }}'
+      - name: order_id
+        description: '{{ doc("order_id") }}'
+        tests: 
+          - relationships:
+              to: ref('stg_orders')
+              field: order_id
+      - name: product_id
+        description: '{{ doc("product_id") }}'
+        tests:
+          - relationships:
+              to: ref('stg_products')
+              field: product_id
       - name: year
         description: '{{ doc("year") }}'
       - name: month
@@ -46,5 +58,7 @@ models:
     description: 'Staged order_items'
   - name: stg_promos
     description: 'Staged promos'
+  - name: stg_products
+    description: 'Staged products'
 
 
