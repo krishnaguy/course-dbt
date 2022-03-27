@@ -1,0 +1,22 @@
+version: 2
+
+macros:
+  - name: get_binary_value
+    description: A macro that compares a column value to a specific value and returns 1 if they are the same and zero otherwise.
+    arguments:
+      - name: col_value
+        type: string
+        description: The name of the column
+      - name: target_value
+        type: string
+        description: The value to compare to.
+  - name: get_product_events
+    description: A macro that finds all distinct browsing/shopping events at the product level.
+  - name: get_order_events
+    description: A macro that finds all distinct browsing/shopping events at the order level.
+  - name: grant
+    description: A macro grants USAGE and SELECT privileges to a given role 
+    arguments: 
+      - name: role
+        type: string
+        description: The role which will receive the privileges

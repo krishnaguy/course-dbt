@@ -1,7 +1,7 @@
 version: 2
 
 models:
-  - name: fact_evemts
+  - name: fact_events
     description: 'Facts about events'
     columns: 
       - name: year
@@ -36,8 +36,13 @@ models:
         description: 'Number of distinct sessions per hour'
   - name: fact_product_conv
     description: 'Conversion rate by product'
+    tests:
+      - dbt_expectations.expect_table_column_count_to_equal:
+          value: 4
     columns: 
       - name: product_id
         description: '{{ doc("product_id") }}'
+        tests: 
+          - dbt_expectations.expect_column_values_to_be_unique
       - name: conversion_rate
         description: "Product conversion rate defined as the number of sessions with a page_view event divided by the number of sessions with a conversion event (for that product). The conversion event is the AND of a add_to_cart event and a checkout event."
