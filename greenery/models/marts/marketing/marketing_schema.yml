@@ -1,0 +1,27 @@
+version: 2
+
+models:
+  - name: fact_user_order
+    description: 'Order Information by user'
+    columns:
+      - name: user_guid
+        description: '{{ doc("user_id") }}'
+      - name: created_at
+        description: '{{ doc("user_created_at") }}'
+      - name: product_cost
+        description: '{{ doc("cust_product_cost") }}'
+      - name: shipping_cost
+        description: '{{ doc("cust_shipping_cost") }}'
+      - name: order_cost
+        description: '{{ doc("cust_order_cost") }}'
+      - name: discounts
+        description: '{{ doc("cust_discounts") }}'
+      - name: num_orders
+        description: '{{ doc("cust_num_orders") }}'
+      - name: num_delivered
+        description: '{{ doc("cust_num_orders_delivered") }}'
+      - name: num_preparing
+        description: '{{ doc("cust_num_orders_preparing") }}'
+      - name: num_shipped
+        description: '{{ doc("cust_num_orders_shipped") }}'
+

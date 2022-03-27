@@ -1,0 +1,37 @@
+version: 2
+
+models:
+  - name: fact_evemts
+    description: 'Facts about events'
+    columns: 
+      - name: year
+        description: '{{ doc("year") }}'
+      - name: month
+        description: '{{ doc("month") }}'
+      - name: day
+        description: '{{ doc("day") }}'
+      - name: hour
+        description: '{{ doc("hour") }}'
+      - name: num_events
+        description: 'Number of events per hour'
+      - name: num_checkouts
+        description: 'Number of checkouts per hour'
+      - name: num_page_views
+        description: 'Number of page views'
+      - name: num_add_to_carts
+        description: 'Number of add_to_cart events per hour'
+      - name: num_packages_shipped
+        description: 'Number of packages shipped per hour'
+      - name: num_distinct_checkout_users
+        description: 'Number of distinct users with a checkout event per hour'
+      - name: num_distinct_page_view_users
+        description: 'Number of distinct users with a page_view event per hour'
+      - name: num_distinct_add_to_cart_users
+        description: 'Number of distinct users with a add_to_cart event per hour'
+      - name: num_distinct_packages_shipped_users
+        description: 'Number of distinct users with a packages_shipped event per hour'
+      - name: num_distinct_users
+        description: 'Number of distinct users per hour'
+      - name: num_distinct_sessions
+        description: 'Number of distinct sessions per hour'
+      

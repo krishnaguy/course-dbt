@@ -7,9 +7,44 @@ models:
     description: 'Staged addresses'
   - name: stg_events
     description: 'Staged events'
+    columns:
+      - name: event_id
+        description: '{{ doc("event_id") }}'
+        tests:
+          - not_null
+          - unique
+      - name: session_id
+        description: '{{ doc("session_id") }}'
+        tests:
+          - not_null
+      - name: user_id 
+        description: '{{ doc("user_id") }}'
+        tests: 
+          - not_null
+      - name: event_type
+        description: '{{ doc("event_type") }}'
+        tests:
+          - accepted_values:
+              values: ['page_view', 'add_to_cart', 'package_shipped', 'checkout']
+      - name: page_url
+        description: '{{ doc("page_url") }}'
+      - name: year
+        description: '{{ doc("year") }}'
+      - name: month
+        description: '{{ doc("month") }}'
+      - name: day
+        description: '{{ doc("day") }}'
+      - name: hour
+        description: '{{ doc("hour") }}'
+      - name: minute
+        description: '{{ doc("minute") }}'
+      - name: second
+        description: '{{ doc("second") }}'
   - name: stg_orders
     description: 'Staged orders'
   - name: stg_order_items
     description: 'Staged order_items'
   - name: stg_promos
     description: 'Staged promos'
+
+
