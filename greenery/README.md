@@ -1,3 +1,13 @@
+### Week 3 homework
+#### Question 1: Conversion Rate (overall)
+#### Answer 1: 0.62
+~~~~sql
+SELECT
+sum(has_checkout_event)/count(*)::numeric as conversion
+from dbt_krishna_v.product_int_sess_evts
+~~~~
+
+
 ### Week 2 homework
 #### Question 1: Repeat Rate
 #### Answer 1: 0.798
