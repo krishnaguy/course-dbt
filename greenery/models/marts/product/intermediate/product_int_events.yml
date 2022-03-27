@@ -1,0 +1,26 @@
+version: 2
+
+models:
+  - name: product_int_prd_sess_evts
+    description: 'An intermediate table that tracks whether a page view or a add_to_cart event occured for every session and product'
+    columns:
+      - name: session_id
+        description: '{{ doc("product_id") }}'
+      - name: product_id
+        description: '{{ doc("product_id") }}'
+      - name: has_page_view
+        description: 'A binary field, 1 if the session as a page view for the product, 0 otherwise'
+      - name: has_add_to_cart
+        description: 'A binary field, 1 if the session has an add_to_card for the product, 0 otherwise'
+      - name: has_checkout
+        description: 'A binary field, one if the session has a checkout, 0 otherwise'
+
+  - name: product_int_sess_evts
+    description: 'An intermediate table that tracks whether a session has a checkout event'
+    columns:
+      - name: session_id 
+        description: '{{ doc("session_id") }}'
+      - name: has_checkout
+        description: 'A binary field, one if the session has a checkout, 0 otherwise'
+
+      
